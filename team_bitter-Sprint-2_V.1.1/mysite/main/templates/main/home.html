@@ -1,0 +1,34 @@
+{% extends 'main/header.html' %}
+
+{% block content %}
+  <div class="row">
+    {% for tut in tutorials %}
+        <div class="col s12 m6">
+          <div class="card hoverable">
+            <div class="card-content">
+              <span class="card-title">{{tut.tutorial_title}}</span>
+              <p style="font-size:70%">Published {{tut.tutorial_published}}</p>
+              <p>{{tut.tutorial_content|safe}}</p>
+<form method = 'POST' enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ error }}
+     <p><label>Add  Friend：</label><input type="text" name="friendWaitToAdd" /></p>
+    <input type="submit" name="add" value = "add" />
+</form>
+<form method = 'POST'  enctype="multipart/form-data">
+    {% csrf_token %}
+     <p><label>delete  Friend：</label><input type="text" name="friendWaitToDelete" /></p>
+    <input type="submit" name="delete" value = "delete" />
+</form>
+<form method = 'POST'  enctype="multipart/form-data">
+    {% csrf_token %}
+     <p><label>block ：</label><input type="text" name="friendWaitToBlock" /></p>
+    <input type="submit" name="block" value = "block" />
+</form>
+friend list：{{friendList}}
+block list：{{blockList}}
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+{% endblock %}

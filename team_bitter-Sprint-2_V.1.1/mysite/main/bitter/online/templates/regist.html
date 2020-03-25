@@ -1,0 +1,16 @@
+{% extends 'header.html' %}
+
+{% block content %}
+<form method = 'post' enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ error }}
+    <p><label>username：</label><input type="text" name="username" /></p>
+    <p><label>password：</label><input type="password" name="password"/></p>
+    <p><label>mail：</label><input type="text" name="mail" /></p>
+    <p><label>fullname：</label><input type="text" name="fullname"/></p>
+    <input type="submit" value = "ok" />
+</form>
+<br>
+<a href="http://127.0.0.1:8000/online/login/">log in</a>
+
+{% endblock %}

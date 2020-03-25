@@ -1,0 +1,5 @@
+from django.contrib.auth.models import User
+from  main.models import UserRelationship
+User.objects.all()
+ User.objects.filter(username__exact='ash47')
+q = UserRelationship(selfname="What's new?", friendname='a')
